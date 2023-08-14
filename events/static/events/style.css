@@ -1,0 +1,104 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #110f0f;
+    height:80px;
+    padding: 0 20px;
+    width: 100%;   
+  }
+  
+  .navbar-logo img {
+    height: 50px; /* Adjust the height of the logo as needed */
+    width: 200px;
+    margin-left: 50px;
+  }
+  
+  .navbar-links {
+    display: flex;
+    gap: 20px;
+    margin-right: 50px;
+  }
+  
+  .navbar-links a {
+    color: #fff;
+    text-decoration: none;
+    padding: 8px 16px;
+  }
+  
+  .navbar-links a:hover{
+    color: #777;
+  }
+
+  
+
+  .header {
+    background-image: url('/static/events/images/event.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 400px; /* Adjust the height of the header as needed */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    padding: 40px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .search-container {
+    margin-top: 20px;
+  }
+  
+  .search-form {
+    display: flex;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 25px;
+    padding: 10px;
+  }
+  
+  
+  #search-input {
+    border: none;
+    outline: none;
+    background: transparent;
+    font-size: 16px;
+    padding: 8px;
+  }
+  
+  #category-filter {
+    margin-left: 10px;
+    padding: 6px 10px;
+  }
+  
+  .search-form button {
+    border: none;
+    outline: none;
+    background: #333;
+    color: #fff;
+    font-size: 16px;
+    padding: 8px 16px;
+    border-radius: 25px;
+    cursor: pointer;
+    margin-left: 5px;
+  }
+  
+  .search-form button:hover{
+    background-color: #110f0f ;
+  }
+  
+  .header-content {
+    text-align: center;
+  }
+
+  .item-card {
+    transition: transform 0.3s;
+  }
+
+  .item-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }

@@ -1,0 +1,113 @@
+
+{% extends 'events/base.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+</head>
+<body>
+
+  {% block body %}
+
+  <header class="header">
+    <div class="header-content">
+      <h1 class="title">Welcome to My Events</h1>
+      <h3 class="subtitle">Join us for an exciting experience</h3>
+    </div>
+    <div class="search-container">
+      <form action="#" method="GET">
+        <input type="search" name="item_name">
+        <select id="category-filter" name="item_category">
+          <option value="">All Categories</option>
+          {% for category in categories %}
+            <option value="{{ category }}">{{ category }}</option>
+          {% endfor %}
+        </select>
+        <button type="submit">Search</button>
+      </form>
+    </div>
+  </header>
+  
+
+  <div class="container mt-5">
+    <div class="row">
+      <div class="col-md-12 mb-4">
+        <form action="" method="GET" class="form-inline">
+            <div class="form-row align-items-center">
+                <div class="col-md-4 mb-2">
+                    <select id="location-filter" name="item_location" class="form-control">
+                        <option value="">City</option>
+                        {% for location in locations %}
+                            <option value="{{ location }}">{{ location }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="col-md-4 mb-2">
+                    <select id="date-filter" name="item_date" class="form-control">
+                        <option value="">All Dates</option>
+                        {% for date in dates %}
+                            <option value="{{ date|date:'Y-m-d' }}">{{ date }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="col-md-4 mb-2">
+                    <button type="submit" class="btn btn-primary">Filter</button>
+                </div>
+            </div>
+        </form>
+    </div>
+        {% for item in item_list %}
+        <div class="col-md-4 mb-4">
+            <div class="card h-100 item-card">
+                <img class="card-img-top" src="{{ item.item_image }}" alt="{{ item.item_name }}">
+                <div class="card-body">
+                    <h5 class="card-title">{{ item.item_name }}</h5>
+                    <p class="card-text">{{ item.item_location }}</p>
+                    <p class="card-text">{{ item.formatted_date }}</p>
+                </div>
+                <div class="card-footer">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <a href="{% url 'events:detail' item.id %}" class="btn btn-primary">Details</a>
+                        <span class="text-muted">Rs. {{ item.item_price }}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+<div class="pagination d-flex justify-content-center mt-4">
+  {% if item_list.has_previous %}
+  <a href="?page=1" class="btn btn-outline-secondary">First</a>
+  <a href="?page={{ item_list.previous_page_number }}" class="btn btn-outline-secondary">Previous</a>
+  {% endif %}
+
+  Page: {{ item_list.number }} of {{ item_list.paginator.num_pages }}
+
+  {% if item_list.has_next %}
+  <a href="?page={{ item_list.next_page_number }}" class="btn btn-outline-secondary">Next</a>
+  <a href="?page={{ item_list.paginator.num_pages }}" class="btn btn-outline-secondary">Last</a>
+  {% endif %}
+</div>
+
+{% endblock %}
+
+
+  
+   
+  <ul>
+      <li>
+          <a href="{% url 'events:detail' item.id %}"> {{ item.id }} -- {{ item.item_name }}</a>
+      </li>
+  </ul>
+
+  
+  
+      
+    
+</body>
+</html>
