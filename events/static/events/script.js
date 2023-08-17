@@ -1,5 +1,5 @@
 function searchEvents(event) {
-    event.preventDefault(); // Prevent the form from submitting and refreshing the page
+    event.preventDefault(); 
   
     const searchInput = document.getElementById("search-input").value.toLowerCase();
     const categoryFilter = document.getElementById("category-filter").value;
@@ -12,9 +12,9 @@ function searchEvents(event) {
       const matchesCategory = categoryFilter === "" || eventCategory === categoryFilter;
   
       if (matchesSearchTerm && matchesCategory) {
-        card.style.display = "block"; // Show the event card if it matches the search term and category
+        card.style.display = "block"; 
       } else {
-        card.style.display = "none"; // Hide the event card if it does not match the search term and category
+        card.style.display = "none"; 
       }
     });
   }
