@@ -9,7 +9,7 @@
   }
   
   .navbar-logo img {
-    height: 50px; /* Adjust the height of the logo as needed */
+    height: 50px;
     width: 200px;
     margin-left: 50px;
   }
@@ -36,7 +36,7 @@
     background-image: url('/static/events/images/event.jpg');
     background-size: cover;
     background-position: center;
-    height: 400px; /* Adjust the height of the header as needed */
+    height: 400px; 
     display: flex;
     flex-direction: column;
     justify-content: center;
